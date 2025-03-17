@@ -10,29 +10,31 @@
 			{{{style}}}
 		</style>
         <style>
-            /* avoid breaking directly after a heading */
-            h1, h2, h3, h4, h5, h6 {
-                break-after: avoid;
-            }
+            @media print {
+                /* avoid breaking directly after a heading */
+                h1, h2, h3, h4, h5, h6 {
+                    break-after: avoid;
+                }
 
-            /* avoid breaking inside or before a codeblock.
-            (avoid breaking before because the preceding paragraph
-            probably adds context to the code block) */
-            pre {
-                break-inside: avoid;
-                break-before: avoid;
-            }
+                /* avoid breaking inside or before a codeblock.
+                (avoid breaking before because the preceding paragraph
+                probably adds context to the code block) */
+                pre {
+                    break-inside: avoid;
+                    break-before: avoid;
+                }
 
-            /* avoid breaking before or inside the last
-            paragraph in a section */
-            p + h1,
-            p + h2,
-            p + h3,
-            p + h4,
-            p + h5,
-            p + h6 {
-                break-before: avoid;
-                break-inside: avoid;
+                /* avoid breaking before or inside the last
+                paragraph in a section */
+                p + h1,
+                p + h2,
+                p + h3,
+                p + h4,
+                p + h5,
+                p + h6 {
+                    break-before: avoid;
+                    break-inside: avoid;
+                }
             }
         </style>
 	</head>
