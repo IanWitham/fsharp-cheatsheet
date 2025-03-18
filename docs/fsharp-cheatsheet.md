@@ -1,5 +1,3 @@
-<div id="comments"></div>
-
 # Comments
 
 Block comments are placed between `(*` and `*)`. Line comments start from `//` and continue until the end of the line.
@@ -16,8 +14,6 @@ XML doc comments come after `///` allowing us to use XML tags to generate docume
 /// Double a number and add 1
 let myFunction n = n * 2 + 1
 ```
-
-<div id="strings"></div>
 
 # Strings
 
@@ -72,8 +68,6 @@ printf  $@" ""%s{expr}"" \ World!"  // no newline
 
 See [Strings (MS Learn)](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/strings) for more on escape characters, byte arrays, and format specifiers.
 
-<div id="basic-types-and-literals"></div>
-
 # Basic Types and Literals
 
 Use the `let` keyword to define values. Values are immutable by default, but can be modified if specified with the `mutable` keyword.
@@ -127,8 +121,6 @@ let x'' = x' + 1
 ```
 
 See [Literals (MS Learn)](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/literals) for complete reference.
-
-<div id="functions"></div>
 
 # Functions
 
@@ -204,8 +196,6 @@ let uppercaseNames =
     people |> List.map _.Name.ToUpperInvariant()
 ```
 
-<div id="functions-unit-type"></div>
-
 ## `unit` Type
 
 The `unit` type is a type that indicates the absence of a specific value. It is represented by `()`.
@@ -221,8 +211,6 @@ let getCurrentDateTime2 () = DateTime.Now
 // How to call the function:
 let startTime = getCurrentDateTime2()
 ```
-
-<div id="functions-signatures"></div>
 
 ## Signatures and Explicit Typing
 
@@ -246,7 +234,7 @@ let countWordsStartingWithLetter (theString: string) (theLetter: char) : int =
     |> Seq.length
 ```
 
-Examples of functions that take [`unit`](#functions-unit-type) as arguments and return different [Collection](#collections) types.
+Examples of functions that take [`unit`](#unit-type) as arguments and return different [Collection](#collections) types.
 
 ```fsharp
 let getList (): int list = ...  // unit -> int list
@@ -260,8 +248,6 @@ A complex declaration with an [Anonymous Record](#data-types-anonymous-records):
 let anonRecordFunc (record: {| Count: int; LeftAndRight: bigint * bigint |}) =
     ...
 ```
-
-<div id="functions-recursive"></div>
 
 ## Recursive Functions
 
@@ -315,10 +301,6 @@ and odd x =
     else even (x - 1)
 ```
 
-
-
-<div id="statically-resolved-type-parameters"></div>
-
 ## Statically Resolved Type Parameters
 
 A *statically resolved type parameter* is a type parameter that is replaced with an actual type at compile time instead of at run time. They are primarily useful in conjunction with member constraints.
@@ -344,11 +326,8 @@ let idB = getId requestB  // "B"
 
 See [Statically Resolved Type Parameters (MS Learn)](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/generics/statically-resolved-type-parameters) and [Constraints (MS Learn)](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/generics/constraints) for more examples.
 
-<div id="collections"></div>
 
 # Collections
-
-<div id="collections-lists"></div>
 
 ## Lists
 
@@ -383,8 +362,6 @@ let sumEachItem (myList:int list) =
 
 See the [List Module](https://fsharp.github.io/fsharp-core-docs/reference/fsharp-collections-listmodule.html) for built-in functions.
 
-<div id="collections-arrays"></div>
-
 ## Arrays
 
 *Arrays* are fixed-size, zero-based, collections of consecutive data elements maintained as one block of memory. They are *mutable*; individual elements can be changed.
@@ -415,8 +392,6 @@ match myArray with
 ```
 
 See the [Array Module](https://fsharp.github.io/fsharp-core-docs/reference/fsharp-collections-arraymodule.html) for built-in functions.
-
-<div id="collections-sequences"></div>
 
 ## Sequences
 
@@ -459,11 +434,7 @@ See the [Seq Module](https://fsharp.github.io/fsharp-core-docs/reference/fsharp-
         }
     ```
 
-<div id="data-types"></div>
-
 # Data Types
-
-<div id="data-types-tuples"></div>
 
 ## Tuples
 
@@ -501,8 +472,6 @@ let (success, outParsedDateTime) = System.DateTime.TryParse("2001/02/06")
 
 See [Tuples (MS Learn)](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/tuples) for learn more.
 
-<div id="data-types-records"></div>
-
 ## Records
 
 *Records* represent aggregates of named values. They are sealed classes with extra toppings: default immutability, structural equality, and pattern matching support.
@@ -534,8 +503,6 @@ let isPaul person =
 
 See [Records (MS Learn)](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/records) to learn more; including `struct`-based records.
 
-<div id="data-types-anonymous-records"></div>
-
 ## Anonymous Records
 
 *Anonymous Records* represent aggregates of named values, but do not need declaring before use.
@@ -562,8 +529,6 @@ printCircleStats cc
 ```
 
 See [Anonymous Records (MS Learn)](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/anonymous-records) to learn more; including `struct`-based anonymous records.
-
-<div id="data-types-discriminated-unions"></div>
 
 ## Discriminated Unions
 
@@ -630,8 +595,6 @@ let (Order id) = orderId  // id = "12"
 
 See [Discriminated Unions](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/discriminated-unions) to learn more.
 
-<div id="pattern-matching"></div>
-
 # Pattern Matching
 
 Patterns are a core concept that makes the F# language and other MLs very powerful.
@@ -680,8 +643,6 @@ let filterNumbers' =  // the parameter and `match num with` are combined
 ```
 
 See  [Pattern Matching (MS Learn)](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/pattern-matching) to learn more.
-
-<div id="exceptions"></div>
 
 # Exceptions
 
@@ -744,8 +705,6 @@ let handleErrors x y =
 
 Note that `finally` does not follow `with`. `try..with` and `try..finally` are separate expressions.
 
-<div id="classes-and-inheritance"></div>
-
 # Classes and Inheritance
 
 This example is a basic class with (1) local let bindings, (2) properties, (3) methods, and (4) static members.
@@ -787,8 +746,6 @@ let animal = dog :> Animal
 let shouldBeADog = animal :?> Dog
 ```
 
-<div id="interfaces-and-object-expressions"></div>
-
 # Interfaces and Object Expressions
 
 Declare `IVector` interface and implement it in `Vector`.
@@ -817,8 +774,6 @@ let createCustomer name age =
         member _.Name = name
         member _.Age = age }
 ```
-
-<div id="active-patterns"></div>
 
 # Active Patterns
 
@@ -888,8 +843,6 @@ let fizzBuzz = function
     | DivisibleBy 5 -> "Buzz"
     | i -> string i
 ```
-
-<div id="asynchronous-programming"></div>
 
 # Asynchronous Programming
 
@@ -1015,8 +968,6 @@ Output:
 
 (1) `.GetAwaiter().GetResult()` used for demonstration only. Read about [async/await Best Practices](https://learn.microsoft.com/en-us/archive/msdn-magazine/2013/march/async-await-best-practices-in-asynchronous-programming#async-all-the-way)
 
-<div id="asynchronous-programming-cancellation-async"></div>
-
 ### Async
 
 Asynchronous computations have the benefit of implicit `CancellationToken` passing and checking.
@@ -1059,11 +1010,7 @@ Asynchronous programming is a vast topic. Here are some other resources worth ex
 - [Iced Tasks](https://github.com/TheAngryByrd/IcedTasks?tab=readme-ov-file#icedtasks) - .NET Tasks start immediately. The IcedTasks library provide additional [computational expressions](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/computation-expressions) such as `cancellableTask`, which combines the benefits of .NET Tasks (natural interoperation with Task APIs and the performance benefits of the `task`'s State-Machine based implementation) with asynchronous expressions (composability, implicit `CancellationToken` passing, and the fact that you can invoke (or retry) a given computation multiple times).
 - [Asynchronous Programming Best Practices](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#table-of-contents) by David Fowler - offers a fantastic list of good practices for .NET Task usage.
 
-<div id="code-organization"></div>
-
 # Code Organization
-
-<div id="modules"></div>
 
 ## Modules
 Modules are key building blocks for grouping related code; they can contain `types`, `let` bindings, or (nested) sub `module`s.
@@ -1114,8 +1061,6 @@ A top-level [`module`](#modules)'s namespace can be specified via a dotted prefi
 ```fsharp
 module MyNamespace.SubNamespace.Functions
 ```
-
-<div id="open-and-autoopen"></div>
 
 ## Open and AutoOpen
 The `open` keyword can be used on `module`, `namespace`, and `type`.
@@ -1179,8 +1124,6 @@ With the exception of `let` bindings in a class `type`, everything defaults to `
 | `type` .. `member`                              | `member private _.TypeMember =`            |
 | `type` .. `val`                                 | `val internal explicitInt : int`           |
 
-<div id="smart-constructors"></div>
-
 ## Smart Constructors
 
 Making a primary constructor (ctor) `private` or `internal` is a common convention for ensuring value integrity;
@@ -1235,8 +1178,6 @@ and Address =
 ```
 
 See [Namespaces (MS Learn)](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/namespaces) and [Modules (MS Learn)](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/modules) to learn more.
-
-<div id="compiler-directives"></div>
 
 # Compiler Directives
 
