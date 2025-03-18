@@ -16,28 +16,24 @@
                 break-after: avoid;
             }
 
-            /* avoid breaking inside or before a codeblock.
+            /*
+            avoid breaking inside or before a codeblock.
             (avoid breaking before because the preceding paragraph
-            probably adds context to the code block) */
-            pre {
+            probably adds context to the code block).
+            Also avoid for tables, and for the last paragraph in a section
+            */
+            pre,
+            table,
+            p:has(+ h1),
+            p:has(+ h2),
+            p:has(+ h3),
+            p:has(+ h4),
+            p:has(+ h5),
+            p:has(+ h6) {
                 page-break-inside: avoid;
                 break-inside: avoid;
                 page-break-before: avoid;
                 break-before: avoid;
-            }
-
-            /* avoid breaking before or inside the last
-            paragraph in a section */
-            p + h1,
-            p + h2,
-            p + h3,
-            p + h4,
-            p + h5,
-            p + h6 {
-                page-break-before: avoid;
-                break-before: avoid;
-                page-break-inside: avoid;
-                break-inside: avoid;
             }
         </style>
 	</head>
